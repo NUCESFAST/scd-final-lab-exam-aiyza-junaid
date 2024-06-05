@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('i211145_Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/NUCESFAST/scd-final-lab-exam-aiyza-junaid/tree/master'
+                git branch: 'master', url: 'https://github.com/NUCESFAST/scd-final-lab-exam-aiyza-junaid.git'
             }
         }
 
         stage('i211145_Dependency Installation') {
             steps {
-                sh 'npm install' 
+                bat 'npm install' 
             }
         }
 
