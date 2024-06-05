@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('i211145_Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/NUCESFAST/scd-final-lab-exam-aiyza-junaid.git'
+                git branch: 'master', url: 'https://github.com/NUCESFAST/scd-final-lab-exam-aiyza-junaid/tree/master'
             }
         }
 
