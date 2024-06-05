@@ -1,8 +1,5 @@
 pipeline {
-  agent any {
-    // Additional options...
-    workspace rootPath: '.'
-  }
+  agent any 
 
   stages {
     stage('i211145_Checkout') {
