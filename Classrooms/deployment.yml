@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: classroom-service
-        image: your-dockerhub-username/classroom-service:latest
+        image: aiyzajunaid/classroom-service:latest
         ports:
         - containerPort: 3145
         env:

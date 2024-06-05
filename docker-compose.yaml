@@ -12,6 +12,7 @@ services:
   auth-backend:
     build: ./Auth
     container_name: auth-backend
+    image: aiyzajunaid/finalexam:auth-backend
     ports:
       - "3145:3145"
     depends_on:
@@ -22,6 +23,7 @@ services:
   classroom-service:
     build: ./Classrooms
     container_name: classroom-service
+    image: aiyzajunaid/finalexam:classroom-service
     ports:
       - "3145:3145"
     depends_on:
@@ -32,6 +34,7 @@ services:
   post-service:
     build: ./Post
     container_name: post-service
+    image: aiyzajunaid/finalexam:post-service
     ports:
       - "3145:3145"
     depends_on:
@@ -42,6 +45,7 @@ services:
   eventbus-service:
     build: ./event-bus
     container_name: eventbus-service
+    image: aiyzajunaid/finalexam:eventbus-service
     ports:
       - "3145:3145"
     depends_on:
@@ -52,6 +56,7 @@ services:
   react-frontend:
     build: ./client
     container_name: react-frontend
+    image: aiyzajunaid/finalexam:react-frontend
     ports:
       - "1145:1145"
     depends_on:
