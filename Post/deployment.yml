@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: post-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: post-service
+  template:
+    metadata:
+      labels:
+        app: post-service
+    spec:
+      containers:
+      - name: post-service
+        image: your-dockerhub-username/post-service:latest
+        ports:
+        - containerPort: 3145
+        env:
+        - name: MONGO_URL
+          value: "mongodb://mongodb:27017/ClassroomMS"

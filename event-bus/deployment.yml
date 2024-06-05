@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eventbus-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eventbus-service
+  template:
+    metadata:
+      labels:
+        app: eventbus-service
+    spec:
+      containers:
+      - name: eventbus-service
+        image: your-dockerhub-username/eventbus-service:latest
+        ports:
+        - containerPort: 3145
