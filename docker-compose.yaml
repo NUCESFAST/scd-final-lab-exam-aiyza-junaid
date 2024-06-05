@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  auth-backend:
+    build: ./Auth
+    container_name: auth-backend
+    ports:
+      - "3145:3145"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/ClassroomMS
+
+  classroom-service:
+    build: ./Classrooms
+    container_name: classroom-service
+    ports:
+      - "3145:3145"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/ClassroomMS
+
+  post-service:
+    build: ./Post
+    container_name: post-service
+    ports:
+      - "3145:3145"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/ClassroomMS
+
+  eventbus-service:
+    build: ./event-bus
+    container_name: eventbus-service
+    ports:
+      - "3145:3145"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/ClassroomMS
+  
+  react-frontend:
+    build: ./client
+    container_name: react-frontend
+    ports:
+      - "1145:1145"
+    depends_on:
+      - auth-backend
+      - classroom-service
+      - post-service
+
+networks:
+  default:
+    driver: bridge
+    
+volumes:
+  mongo-data:
