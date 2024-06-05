@@ -11,15 +11,15 @@ pipeline {
     stage('i211145_Dependency Installation') {
       steps {
         // Install dependencies for Auth backend
-        sh 'cd Auth && npm install'
+        bat 'cd Auth && npm install'
         // Install dependencies for Classroom service
-        sh 'cd Classrooms && npm install'
+        bat 'cd Classrooms && npm install'
         // Install dependencies for Post service
-        sh 'cd Post && npm install'
+        bat 'cd Post && npm install'
         // Install dependencies for Event Bus service
-        sh 'cd event-bus && npm install'
+        bat 'cd event-bus && npm install'
         // Install dependencies for React frontend
-        sh 'cd client && npm install'
+        bat 'cd client && npm install'
       }
     }
 
